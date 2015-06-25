@@ -21,5 +21,28 @@ angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth'])
 }); 
 
 })
+.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('list', {
+      url: '/list',
+      templateUrl: 'template/list.html',
+      controller: 'ListController'
+    })
+    $urlRouterProvider.otherwise('/list');
+})
+.controller('ListController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+      console.log('hqhq');
+    $http.get('js/event.json').success(function(data) {
+      console.log('sucess read json');
+      $scope.events = data.events;
+      $scope.doRefresh =function() {
+      $http.get('js/event.json').success(function(data) {
+          $scope.events = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
+    });
+}]);
 
 
