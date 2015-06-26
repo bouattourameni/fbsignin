@@ -1,1 +1,6 @@
 /* Empty. Add your own CSS if you like */
+.buttondemoBasicUsage md-content {
+  margin-right: 7px; }
+.buttondemoBasicUsage section .md-button {
+  margin-top: 16px;
+  margin-bottom: 16px; }

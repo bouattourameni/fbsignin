@@ -1,4 +1,4 @@
-angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth'])
+angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth','ngMaterial'])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaOauth) {
      $ionicPlatform.ready(function () {
@@ -38,7 +38,7 @@ angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth'])
       $scope.events = data.events;
       $scope.doRefresh =function() {
       $http.get('js/event.json').success(function(data) {
-          $scope.events = data;
+          $scope.events = data.events;
           $scope.$broadcast('scroll.refreshComplete'); 
         });
       }
