@@ -1,4 +1,4 @@
-angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth','ngMaterial'])
+angular.module('ionicApp', ['ionic','ngCordova', 'ngCordovaOauth'])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaOauth) {
      $ionicPlatform.ready(function () {
