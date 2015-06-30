@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()">
+        </ion-refresher>
+        <md-button class="md-primary md-fab md-fab-bottom-right">
+            <md-icon md-svg-src="img/ic_playlist_add_24px.svg"></md-icon>
+        </md-button>
+        <ion-list>
+            <ion-item ng-repeat='item in events | filter: query'
+                      class="item-text-wrap" href="#/tab/list/{{item.shortname}}">
+                <h2>{{item.title}}</h2>
+                <h3>{{item.adresse}}</h3>
+                <p>{{item.description | limitTo: 100}}
+                    {{ item.description.length > 150 ? '&hellip;' : '' }}</p>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
